@@ -222,8 +222,9 @@ st.markdown(
 )
 
 ASSET_DIR = Path(__file__).resolve().parent / "assets"
-HERO_IMAGE = ASSET_DIR / "coral_reef_hero.svg"
+HERO_IMAGE = Path(__file__).resolve().parent / "coral.jpeg"
 ICON_IMAGE = ASSET_DIR / "reef_icons.svg"
+BOT_AVATAR = ASSET_DIR / "coral_bot_avatar.svg"
 
 
 def stream_text(text: str, delay: float = 0.02):
@@ -435,7 +436,8 @@ with tab_chat:
         st.info(f"Suggested question from Learn Corals: {st.session_state.suggested_prompt}")
 
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
+        avatar = BOT_AVATAR if message["role"] == "assistant" else None
+        with st.chat_message(message["role"], avatar=avatar):
             if message["role"] == "assistant" and message.get("animate"):
                 st.write_stream(stream_text(message["content"]))
                 message["animate"] = False

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Coral reef bot avatar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e7f7ff"/>
+      <stop offset="100%" stop-color="#c4eef9"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="62" fill="url(#bg)" stroke="#9fd9ea" stroke-width="4"/>
+  <path d="M40 92 C39 74 51 58 64 50 C77 58 89 74 88 92 Z" fill="#ff7f50"/>
+  <path d="M29 92 C27 76 35 62 47 53 C51 67 53 80 52 92 Z" fill="#ff9b6d"/>
+  <path d="M99 92 C101 76 93 62 81 53 C77 67 75 80 76 92 Z" fill="#ffb347"/>
+  <path d="M55 92 C58 72 62 57 64 42 C66 57 70 72 73 92 Z" fill="#ff6f91"/>
+  <path d="M56 63 C49 56 40 53 31 53 C39 48 47 45 55 45 C60 48 62 54 56 63 Z" fill="#7fe0f4" opacity="0.9"/>
+  <path d="M72 63 C79 56 88 53 97 53 C89 48 81 45 73 45 C68 48 66 54 72 63 Z" fill="#7fe0f4" opacity="0.9"/>
+</svg>
