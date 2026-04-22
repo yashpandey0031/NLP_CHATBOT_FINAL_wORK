@@ -135,6 +135,45 @@ st.markdown(
         margin-bottom: 0.7rem;
     }
 
+    .panel-shell {
+        border: 1px solid #d7edf5;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 10px 24px rgba(13, 67, 87, 0.06);
+        padding: 1rem 1.05rem;
+        height: 100%;
+    }
+
+    .panel-title {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #0f4a5a;
+        margin-bottom: 0.45rem;
+    }
+
+    .panel-copy {
+        color: #2d6372;
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+    }
+
+    .menu-caption {
+        color: #0f7ea1;
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.25rem;
+    }
+
+    .menu-card {
+        border: 1px solid #cfe9f4;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 0.65rem 0.75rem;
+        box-shadow: 0 6px 16px rgba(13, 67, 87, 0.05);
+    }
+
     .pill {
         display: inline-block;
         padding: 0.25rem 0.65rem;
@@ -214,6 +253,9 @@ if "messages" not in st.session_state:
         }
     ]
 
+if "suggested_prompt" not in st.session_state:
+    st.session_state.suggested_prompt = ""
+
 tab_overview, tab_learn, tab_chat = st.tabs(["Why This Matters", "Learn Corals", "Chat With Coral Bot"])
 
 with tab_overview:
@@ -253,51 +295,144 @@ with tab_overview:
     feature_cols[1].markdown('<div class="icon-label">Habitat and location guidance</div>', unsafe_allow_html=True)
     feature_cols[2].markdown('<div class="icon-label">Bleaching awareness and action</div>', unsafe_allow_html=True)
 
-    st.subheader("Who can use it")
-    st.write("- Students learning marine biology")
-    st.write("- Divers and snorkellers identifying coral types")
-    st.write("- Reef educators and awareness campaigns")
-    st.write("- Anyone curious about coral ecosystems")
+    st.markdown('<div class="menu-caption">Interactive Menu</div>', unsafe_allow_html=True)
+    overview_choice = st.radio(
+        "Explore the mission",
+        ["Why this matters", "Who can use it", "What the bot does", "Threats to reefs"],
+        horizontal=True,
+        label_visibility="collapsed",
+    )
+
+    overview_panels = {
+        "Why this matters": (
+            "Reefs cover less than 1% of the ocean floor but support an outsized share of marine biodiversity.\n\n"
+            "ReefMind helps people learn quickly, make better decisions, and connect the science of coral reefs with the urgent need for conservation."
+        ),
+        "Who can use it": (
+            "- Students learning marine biology\n"
+            "- Divers and snorkellers identifying coral types\n"
+            "- Reef educators and awareness campaigns\n"
+            "- Anyone curious about coral ecosystems"
+        ),
+        "What the bot does": (
+            "- Answers species identification questions\n"
+            "- Explains habitats and distributions\n"
+            "- Breaks down bleaching and reef threats\n"
+            "- Suggests conservation actions in plain language"
+        ),
+        "Threats to reefs": (
+            "Corals are under pressure from warming seas, pollution, destructive fishing, ocean acidification, and disease outbreaks.\n\n"
+            "The more people can learn interactively, the more likely they are to care and act."
+        ),
+    }
+
+    st.markdown(
+        f'''
+        <div class="panel-shell">
+            <div class="panel-title">{overview_choice}</div>
+            <div class="panel-copy">{overview_panels[overview_choice].replace(chr(10), '<br>')}</div>
+        </div>
+        ''',
+        unsafe_allow_html=True,
+    )
+
+    with st.expander("Quick facts panel"):
+        f1, f2, f3 = st.columns(3)
+        f1.metric("Species Knowledge Base", "15k+ Q/A")
+        f2.metric("Focus Region", "Indo-Pacific + Caribbean")
+        f3.metric("Core Topics", "Species, Habitat, Bleaching")
 
 with tab_learn:
     st.subheader("Quick Learning Modules")
 
-    st.markdown(
-        """
-        <div class="section-card">
-            <b>What are corals?</b><br>
-            Corals are animals made of tiny polyps. Over time, reef-building corals create limestone skeletons that form coral reefs.
-        </div>
-        <div class="section-card">
-            <b>What is coral bleaching?</b><br>
-            Heat stress can force corals to expel symbiotic algae. Corals then turn white and become vulnerable to starvation and disease.
-        </div>
-        <div class="section-card">
-            <b>Why reefs matter</b><br>
-            Reefs support biodiversity, protect coasts from waves, and support tourism and fisheries.
-        </div>
-        """,
-        unsafe_allow_html=True,
+    learning_choice = st.radio(
+        "Choose a learning module",
+        ["What are corals?", "Coral bleaching", "Hard vs soft corals", "Why reefs matter"],
+        horizontal=True,
+        label_visibility="collapsed",
     )
 
-    st.subheader("Explore by topic")
-    topic_col1, topic_col2 = st.columns(2)
-    with topic_col1:
-        st.info("Try asking: What corals are found in Australia?")
-        st.info("Try asking: Difference between hard and soft corals")
-    with topic_col2:
-        st.info("Try asking: Why are coral reefs threatened?")
-        st.info("Try asking: Where is the Great Barrier Reef?")
+    learning_panels = {
+        "What are corals?": (
+            "Corals are animals made of tiny polyps. Over time, reef-building corals create limestone skeletons that form coral reefs.",
+            ["What corals are found in Australia?", "Tell me about Acropora species"],
+        ),
+        "Coral bleaching": (
+            "Heat stress can force corals to expel symbiotic algae. Corals then turn white and become vulnerable to starvation and disease.",
+            ["What is coral bleaching?", "How do corals recover from bleaching?"],
+        ),
+        "Hard vs soft corals": (
+            "Hard corals build reef structures using limestone skeletons. Soft corals are flexible, decorative, and sway with the current.",
+            ["Difference between hard and soft corals", "What are reef-building corals?"],
+        ),
+        "Why reefs matter": (
+            "Reefs support biodiversity, protect coasts from waves, and support tourism and fisheries.",
+            ["Why are coral reefs threatened?", "What is the Great Barrier Reef?"],
+        ),
+    }
 
-    with st.expander("Conservation actions you can take"):
-        st.write("- Reduce carbon emissions and energy use")
-        st.write("- Use reef-safe sunscreen")
-        st.write("- Avoid touching corals while diving/snorkelling")
-        st.write("- Support reef conservation organizations")
+    module_text, module_prompts = learning_panels[learning_choice]
+
+    lc1, lc2 = st.columns([1.25, 1.0], gap="large")
+    with lc1:
+        st.markdown(
+            f'''
+            <div class="panel-shell">
+                <div class="menu-caption">Learning Panel</div>
+                <div class="panel-title">{learning_choice}</div>
+                <div class="panel-copy">{module_text}</div>
+            </div>
+            ''',
+            unsafe_allow_html=True,
+        )
+
+    with lc2:
+        st.markdown('<div class="menu-caption">Try asking the bot</div>', unsafe_allow_html=True)
+        for i, prompt_text in enumerate(module_prompts):
+            st.button(
+                prompt_text,
+                use_container_width=True,
+                key=f"learn_prompt_{learning_choice}_{i}",
+                on_click=lambda q=prompt_text: st.session_state.__setitem__("suggested_prompt", q),
+            )
+
+    with st.expander("More learning paths"):
+        exp1, exp2 = st.columns(2)
+        with exp1:
+            st.markdown(
+                """
+                <div class="section-card">
+                    <b>Why reefs matter</b><br>
+                    Reefs support biodiversity, protect coasts from waves, and support tourism and fisheries.
+                </div>
+                <div class="section-card">
+                    <b>Conservation actions</b><br>
+                    Reduce emissions, use reef-safe sunscreen, avoid touching corals, and support reef organizations.
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        with exp2:
+            st.markdown(
+                """
+                <div class="section-card">
+                    <b>Best starter questions</b><br>
+                    What are corals? How do reefs form? Where are coral reefs found?
+                </div>
+                <div class="section-card">
+                    <b>Field guide ideas</b><br>
+                    Identify coral shape, color, habitat, abundance, and geographic range.
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
 with tab_chat:
     st.subheader("Chat With Coral Bot")
     st.caption("Ask species, habitat, bleaching, distribution, or reef conservation questions.")
+
+    if st.session_state.suggested_prompt:
+        st.info(f"Suggested question from Learn Corals: {st.session_state.suggested_prompt}")
 
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
