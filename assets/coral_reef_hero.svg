@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Coral reef illustration">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dff6ff"/>
+      <stop offset="55%" stop-color="#9adff1"/>
+      <stop offset="100%" stop-color="#59b3cf"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fcecc2"/>
+      <stop offset="100%" stop-color="#e6c88e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#sea)"/>
+  <ellipse cx="980" cy="80" rx="115" ry="46" fill="#ffffff" opacity="0.45"/>
+  <ellipse cx="170" cy="120" rx="130" ry="52" fill="#ffffff" opacity="0.32"/>
+  <circle cx="1020" cy="210" r="6" fill="#ffffff" opacity="0.65"/>
+  <circle cx="985" cy="250" r="4" fill="#ffffff" opacity="0.5"/>
+  <circle cx="1048" cy="292" r="7" fill="#ffffff" opacity="0.55"/>
+
+  <path d="M0 560 C170 500, 340 615, 520 565 C730 505, 930 620, 1200 560 L1200 720 L0 720 Z" fill="url(#sand)"/>
+
+  <path d="M240 610 C230 560 245 510 232 452 C224 414 240 388 266 380 C280 408 279 442 286 478 C294 523 308 560 303 612" fill="#ff7f50"/>
+  <path d="M303 612 C318 562 338 526 370 495 C405 462 430 430 428 386 C398 392 375 421 350 450 C326 478 300 530 283 612" fill="#ff936b"/>
+  <path d="M219 614 C200 575 171 548 141 526 C106 501 81 469 79 428 C108 439 130 463 157 487 C186 514 217 551 244 614" fill="#ff996f"/>
+
+  <path d="M532 622 C540 558 530 514 540 470 C549 430 575 402 613 395 C618 432 612 468 608 503 C603 548 602 581 596 622" fill="#f2657d"/>
+  <path d="M588 623 C613 566 645 535 684 510 C727 484 757 454 769 414 C732 418 700 437 666 459 C626 486 592 534 564 623" fill="#ff7994"/>
+  <path d="M506 623 C486 576 454 544 419 521 C377 493 350 461 342 421 C380 430 409 448 443 470 C480 494 513 533 541 623" fill="#ff8ba2"/>
+
+  <path d="M860 620 C846 578 840 531 851 484 C861 442 894 420 934 419 C937 455 927 489 920 521 C913 554 911 585 908 620" fill="#ffb347"/>
+  <path d="M911 621 C940 579 976 557 1013 543 C1056 526 1090 503 1110 467 C1073 466 1038 479 1000 497 C961 516 925 548 892 621" fill="#ffc267"/>
+  <path d="M828 621 C806 588 774 567 742 553 C704 535 673 510 656 475 C692 476 724 487 758 502 C795 518 828 547 860 621" fill="#ffd07d"/>
+
+  <ellipse cx="460" cy="585" rx="120" ry="42" fill="#4d8da5" opacity="0.35"/>
+  <ellipse cx="760" cy="590" rx="140" ry="48" fill="#4d8da5" opacity="0.3"/>
+
+  <path d="M100 320 C150 285, 230 290, 280 328 C230 365, 150 360, 100 320 Z" fill="#ff6f91" opacity="0.86"/>
+  <circle cx="247" cy="320" r="7" fill="#ffffff" opacity="0.7"/>
+  <path d="M1020 360 C1060 335, 1130 340, 1170 365 C1130 392, 1060 388, 1020 360 Z" fill="#7ce0f5" opacity="0.9"/>
+  <circle cx="1148" cy="364" r="6" fill="#ffffff" opacity="0.75"/>
+</svg>

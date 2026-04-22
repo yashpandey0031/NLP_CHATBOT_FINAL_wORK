@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-label="Coral feature icons">
+  <rect width="960" height="260" fill="#f8fdff"/>
+
+  <g transform="translate(60,40)">
+    <circle cx="80" cy="80" r="72" fill="#e6f6fd" stroke="#a5ddef" stroke-width="4"/>
+    <path d="M80 152 C65 118 62 95 70 65 C76 41 92 28 114 30 C118 52 110 73 104 91 C95 117 94 132 94 152" fill="#ff7f50"/>
+    <path d="M80 152 C58 124 40 108 19 96 C-3 82 -18 64 -24 42 C2 45 22 55 42 69 C64 86 83 109 101 152" fill="#ff996f"/>
+    <path d="M80 152 C103 123 123 106 145 95 C170 83 188 67 197 45 C171 49 149 58 126 72 C104 86 84 108 62 152" fill="#ff8f66"/>
+  </g>
+
+  <g transform="translate(340,40)">
+    <circle cx="80" cy="80" r="72" fill="#e8fbf6" stroke="#9ce7d5" stroke-width="4"/>
+    <path d="M30 136 C45 96 56 75 86 66 C112 58 132 67 146 91 C117 95 96 101 79 118 C63 133 50 145 30 136" fill="#2ab8a0"/>
+    <path d="M75 50 C89 59 97 70 98 83 C99 98 94 112 84 126 C71 108 65 92 64 76 C63 67 66 57 75 50" fill="#59cfb8"/>
+    <circle cx="95" cy="92" r="8" fill="#ffffff" opacity="0.7"/>
+  </g>
+
+  <g transform="translate(620,40)">
+    <circle cx="80" cy="80" r="72" fill="#fff8ea" stroke="#f2d8a1" stroke-width="4"/>
+    <path d="M80 22 C113 22 138 41 138 67 C138 93 113 112 80 112 C47 112 22 93 22 67 C22 41 47 22 80 22 Z" fill="#ffb347"/>
+    <path d="M80 36 L80 98 M50 67 L110 67 M58 49 L102 85 M102 49 L58 85" stroke="#fef7e7" stroke-width="8" stroke-linecap="round"/>
+    <path d="M62 152 C71 131 88 123 106 119 C121 116 133 111 143 102 C137 120 126 132 113 142 C98 154 81 160 62 152" fill="#ffd688"/>
+  </g>
+</svg>
